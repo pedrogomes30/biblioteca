@@ -7,7 +7,6 @@ import nonapi.io.github.classgraph.json.Id;
 @EntityScan
 public class Pessoa {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
 
 }

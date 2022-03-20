@@ -13,10 +13,9 @@ public class Autor {
     private Integer id;
     private String nome;
 
-    @JsonIgnore
-    @OneToMany
-    @JoinColumn(name = "id_autor")
-    private List<Livro> livros;
+
+    @OneToMany(mappedBy = "autor")
+    private List<Livro> livros = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -41,5 +40,7 @@ public class Autor {
     public void setLivros(List<Livro> livros) {
         this.livros = livros;
     }
+
+
 
 }

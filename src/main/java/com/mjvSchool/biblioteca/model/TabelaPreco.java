@@ -13,9 +13,8 @@ public class TabelaPreco {
     private Integer id;
     @Column(length = 30)
     private String tabela;
-    @JsonIgnore
-    @OneToMany
-    @JoinColumn(name = "id_tabelapreco")
+
+    @OneToMany(mappedBy = "tabelaPreco")
     private List<Preco> precos = new ArrayList<>();
 
     public Integer getId() {

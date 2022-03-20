@@ -18,19 +18,16 @@ public class Livro {
     @Column(length = 13)
     private Integer isbn;
     @ManyToOne
-    @JoinColumn(name = "id_autor")
     private Autor autor;
     @ManyToOne
-    @JoinColumn(name = "id_categoria")
     private Categoria categoria;
 
-    @JsonIgnore
-    @OneToMany
-    @JoinColumn(name = "id_preco")
+    @OneToMany(mappedBy = "livro")
     private List<Preco> precos = new ArrayList<>();
 
 //    @OneToMany(mappedBy = "livro")
-//    private List<Estoque> estoque = new ArrayList<>();
+//    private List<Estoque> estoques = new ArrayList<>();
+
 
     public Integer getId() {
         return id;
@@ -64,14 +61,6 @@ public class Livro {
         this.isbn = isbn;
     }
 
-    public List<Preco> getPrecos() {
-        return precos;
-    }
-
-    public void setPrecos(List<Preco> precos) {
-        this.precos = precos;
-    }
-
     public Autor getAutor() {
         return autor;
     }
@@ -88,11 +77,11 @@ public class Livro {
         this.categoria = categoria;
     }
 
-    //    public List<Estoque> getEstoque() {
-//        return estoque;
-//    }
-//
-//    public void setEstoque(List<Estoque> estoque) {
-//        this.estoque = estoque;
-//    }
+    public List<Preco> getPrecos() {
+        return precos;
+    }
+
+    public void setPrecos(List<Preco> precos) {
+        this.precos = precos;
+    }
 }

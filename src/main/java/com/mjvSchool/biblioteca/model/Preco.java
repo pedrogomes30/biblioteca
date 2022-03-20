@@ -12,10 +12,8 @@ public class Preco {
     @Column(nullable = false)
     private Double valor;
     @ManyToOne
-    @JoinColumn(name = "id_livro")
-    private Livro livros;
+    private Livro livro;
     @ManyToOne
-    @JoinColumn(name = "id_tabelapreco")
     private TabelaPreco tabelaPreco;
 
     public Integer getId() {
@@ -34,12 +32,12 @@ public class Preco {
         this.valor = valor;
     }
 
-    public Livro getLivros() {
-        return livros;
+    public Livro getLivro() {
+        return livro;
     }
 
-    public void setLivros(Livro livros) {
-        this.livros = livros;
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
     public TabelaPreco getTabelaPreco() {

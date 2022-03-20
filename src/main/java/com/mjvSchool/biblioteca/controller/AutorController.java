@@ -29,15 +29,16 @@ public class AutorController {
     }
 
     @PostMapping()
-    public void gravar(Autor autor) {
+    public void gravar(@RequestBody Autor autor) {
         autorRepository.save(autor);
     }
-    @PutMapping()
-    public void alterar(Autor autor) {
+    @PutMapping(value = "/{id}")
+    public void alterar(@PathVariable("id") Integer id,@RequestBody Autor autor) {
+        autor.setId(id);
         autorRepository.save(autor);
     }
     @DeleteMapping(path = "/{id}")
-    public void excluir(Integer id) {
+    public void excluir(@PathVariable Integer id) {
         autorRepository.deleteById(id);
     }
 }

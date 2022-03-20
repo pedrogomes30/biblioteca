@@ -28,15 +28,15 @@ public class LivroController {
     }
 
     @PostMapping()
-    public void gravar(Livro livro) {
+    public void gravar(@RequestBody Livro livro) {
         livroRepository.save(livro);
     }
     @PutMapping()
-    public void alterar(Livro livro) {
+    public void alterar(@RequestBody Livro livro) {
         livroRepository.save(livro);
     }
     @DeleteMapping(path = "/{id}")
-    public void excluir(Integer id) {
+    public void excluir(@PathVariable Integer id) {
         livroRepository.deleteById(id);
     }
 }

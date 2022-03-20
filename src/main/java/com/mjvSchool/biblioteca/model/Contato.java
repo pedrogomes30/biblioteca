@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Contato {
@@ -17,6 +18,8 @@ public class Contato {
     private String telefone;
     @Column(nullable = true)
     private String telefoneTipo;
+    @ManyToOne
+    Entidade entidade;
     
     public int getId() {
         return id;

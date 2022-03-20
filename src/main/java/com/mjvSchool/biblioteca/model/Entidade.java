@@ -1,5 +1,8 @@
 package com.mjvSchool.biblioteca.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Entidade {
@@ -20,11 +25,11 @@ public class Entidade {
     @Column(nullable = false)
     private String documento;
     @ManyToOne
-    @JoinColumn(name = "id_entidadeTipo")
     EntidadeTipo entidadeTipo;
-    @OneToMany
-    @JoinColumn(name = "id_contato")
-    Contato contato;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "entidade")
+    private List<Contato> contatos = new ArrayList<>();
     
     public int getId() {
         return id;
@@ -50,15 +55,14 @@ public class Entidade {
     public void setEntidade(EntidadeTipo entidadeTipo) {
         this.entidadeTipo = entidadeTipo;
     }
-    public Contato getContato() {
-        return contato;
+    public void setEntidadeTipo(EntidadeTipo entidadeTipo) {
+        this.entidadeTipo = entidadeTipo;
     }
-    public void setContato(Contato contato) {
-        this.contato = contato;
+    public List<Contato> getContatos() {
+        return contatos;
     }
-    @Override
-    public String toString() {
-        return "Entidade [contato=" + contato + ", documento=" + documento + ", entidade=" + entidadeTipo + ", id=" + id
-                + ", nome=" + nome + "]";
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
     }
+   
 }

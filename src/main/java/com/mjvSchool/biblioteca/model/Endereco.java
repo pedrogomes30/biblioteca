@@ -23,7 +23,6 @@ public class Endereco {
     @Column(nullable = true)
     private int cidade;
     @ManyToOne
-    @JoinColumn(name = "id_entidade")
     Entidade entidade;
     
     public int getId() {

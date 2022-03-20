@@ -14,7 +14,6 @@ public class Acesso {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
-    @JoinColumn(name = "id_entidade")
     Entidade entidade;
     @Column(nullable = false)
     private String login;

@@ -23,8 +23,8 @@ public class LivroController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<Livro> listarUm(@PathVariable("id") Long id){
-        return livroRepository.findById(Math.toIntExact(id));
+    public Optional<Livro> listarUm(@PathVariable("id") Integer id){
+        return livroRepository.findById(id);
     }
 
     @PostMapping()

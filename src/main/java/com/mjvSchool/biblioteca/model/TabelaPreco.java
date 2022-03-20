@@ -14,6 +14,7 @@ public class TabelaPreco {
     @Column(length = 30)
     private String tabela;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "tabelaPreco")
     private List<Preco> precos = new ArrayList<>();
 

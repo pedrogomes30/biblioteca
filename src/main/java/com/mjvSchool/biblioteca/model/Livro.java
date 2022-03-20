@@ -22,6 +22,7 @@ public class Livro {
     @ManyToOne
     private Categoria categoria;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "livro")
     private List<Preco> precos = new ArrayList<>();
 

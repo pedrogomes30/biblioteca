@@ -14,7 +14,7 @@ public class Categoria {
     @Column(length = 30)
     private String descricao;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "categoria")
     private List<Livro> livros = new ArrayList<>();
 

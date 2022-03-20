@@ -13,7 +13,7 @@ public class Autor {
     private Integer id;
     private String nome;
 
-
+    @JsonIgnore
     @OneToMany(mappedBy = "autor")
     private List<Livro> livros = new ArrayList<>();
 

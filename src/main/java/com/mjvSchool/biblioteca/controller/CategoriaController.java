@@ -32,8 +32,9 @@ public class CategoriaController {
     public void gravar(@RequestBody Categoria categoria) {
         categoriaRepository.save(categoria);
     }
-    @PutMapping()
-    public void alterar(@RequestBody Categoria categoria) {
+    @PutMapping(value = "/{id}")
+    public void alterar(@PathVariable("id") Integer id,@RequestBody Categoria categoria) {
+        categoria.setId(id);
         categoriaRepository.save(categoria);
     }
     @DeleteMapping(path = "/{id}")

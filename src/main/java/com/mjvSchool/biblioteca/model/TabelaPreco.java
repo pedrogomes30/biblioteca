@@ -12,11 +12,8 @@ public class TabelaPreco {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     @Column(length = 30)
-    private String tabela;
+    private String descricao;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "tabelaPreco")
-    private List<Preco> precos = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -26,25 +23,11 @@ public class TabelaPreco {
         this.id = id;
     }
 
-    public String tabela() {
-        return tabela;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setTabela(String tabela) {
-        this.tabela = tabela;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-
-    public String getTabela() {
-        return tabela;
-    }
-
-    public List<Preco> getPrecos() {
-        return precos;
-    }
-
-    public void setPrecos(List<Preco> precos) {
-        this.precos = precos;
-    }
-
-
 }

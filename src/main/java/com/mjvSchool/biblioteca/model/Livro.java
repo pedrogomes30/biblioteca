@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 public class Livro {
@@ -17,18 +18,12 @@ public class Livro {
     private String edicao;
     @Column(length = 13)
     private Integer isbn;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Autor autor;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Categoria categoria;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "livro")
-    private List<Preco> precos = new ArrayList<>();
-
-//    @OneToMany(mappedBy = "livro")
-//    private List<Estoque> estoques = new ArrayList<>();
-
 
     public Integer getId() {
         return id;
@@ -76,13 +71,5 @@ public class Livro {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
-    }
-
-    public List<Preco> getPrecos() {
-        return precos;
-    }
-
-    public void setPrecos(List<Preco> precos) {
-        this.precos = precos;
     }
 }

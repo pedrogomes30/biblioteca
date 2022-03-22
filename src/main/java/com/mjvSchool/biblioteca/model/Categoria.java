@@ -14,10 +14,6 @@ public class Categoria {
     @Column(length = 30)
     private String descricao;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "categoria")
-    private List<Livro> livros = new ArrayList<>();
-
     public Integer getId() {
         return id;
     }
@@ -33,14 +29,5 @@ public class Categoria {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
-    public List<Livro> getLivros() {
-        return livros;
-    }
-
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
-    }
-
 
 }

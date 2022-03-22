@@ -11,9 +11,9 @@ public class Preco {
     private Integer id;
     @Column(nullable = false)
     private Double valor;
-    @ManyToOne
-    private Livro livro;
-    @ManyToOne
+
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private TabelaPreco tabelaPreco;
 
     public Integer getId() {
@@ -32,13 +32,7 @@ public class Preco {
         this.valor = valor;
     }
 
-    public Livro getLivro() {
-        return livro;
-    }
 
-    public void setLivro(Livro livro) {
-        this.livro = livro;
-    }
 
     public TabelaPreco getTabelaPreco() {
         return tabelaPreco;

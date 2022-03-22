@@ -27,12 +27,16 @@ public class LivroController {
         return livroRepository.findById(id);
     }
 
+
     @PostMapping()
     public void gravar(@RequestBody Livro livro) {
         livroRepository.save(livro);
     }
+
+
     @PutMapping()
-    public void alterar(@RequestBody Livro livro) {
+    public void alterar(@PathVariable("id") Integer id,@RequestBody Livro livro) {
+        livro.setId(id);
         livroRepository.save(livro);
     }
     @DeleteMapping(path = "/{id}")

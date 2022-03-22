@@ -13,9 +13,6 @@ public class Autor {
     private Integer id;
     private String nome;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "autor")
-    private List<Livro> livros = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -32,15 +29,5 @@ public class Autor {
     public void setNome(String nome) {
         this.nome = nome;
     }
-
-    public List<Livro> getLivros() {
-        return livros;
-    }
-
-    public void setLivros(List<Livro> livros) {
-        this.livros = livros;
-    }
-
-
 
 }

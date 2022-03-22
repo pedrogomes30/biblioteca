@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,9 @@ public class Entidade {
     private String nome;
     @Column(nullable = false)
     private String documento;
-    @ManyToOne
+    @Column(nullable = true)
+    private String email;
+    @ManyToOne(cascade = CascadeType.PERSIST)
     EntidadeTipo entidadeTipo;
 
     @JsonIgnore
@@ -63,6 +66,12 @@ public class Entidade {
     }
     public void setContatos(List<Contato> contatos) {
         this.contatos = contatos;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
    
 }

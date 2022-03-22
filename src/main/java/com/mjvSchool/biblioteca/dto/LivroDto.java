@@ -1,4 +1,4 @@
-package com.mjvSchool.biblioteca.Dto;
+package com.mjvSchool.biblioteca.dto;
 
 public class LivroDto {
 }

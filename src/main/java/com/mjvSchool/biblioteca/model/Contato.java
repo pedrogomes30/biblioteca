@@ -12,8 +12,6 @@ public class Contato {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(nullable = true)
-    private String email;
     @Column(nullable = false)
     private String telefone;
     @Column(nullable = true)
@@ -26,12 +24,6 @@ public class Contato {
     }
     public void setId(int id) {
         this.id = id;
-    }
-    public String getEmail() {
-        return email;
-    }
-    public void setEmail(String email) {
-        this.email = email;
     }
     public String getTelefone() {
         return telefone;
@@ -47,7 +39,7 @@ public class Contato {
     }
     @Override
     public String toString() {
-        return "Contato [email=" + email + ", id=" + id + ", telefone=" + telefone + ", telefoneTipo=" + telefoneTipo
+        return "Contato [id=" + id + ", telefone=" + telefone + ", telefoneTipo=" + telefoneTipo
                 + "]";
     }
 }

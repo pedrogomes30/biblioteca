@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 //onde é definido a regra de negócio.
 
-public class LivroService {
+public class LivroService{
     @Autowired
     private LivroRepository repository;
     @Autowired
@@ -29,7 +29,8 @@ public class LivroService {
         }catch(Exception e){
             System.out.println(e.getMessage()); 
         }
-
     }
+    
+
     
 }

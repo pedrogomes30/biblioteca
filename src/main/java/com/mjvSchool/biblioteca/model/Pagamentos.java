@@ -10,9 +10,18 @@ public class Pagamentos {
     private Double valor;
     @ManyToOne
     private Locacao locacao;
+    private String formaPagamento;
 
     public Integer getId() {
         return id;
+    }
+
+    public String getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public void setId(Integer id) {

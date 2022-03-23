@@ -13,16 +13,34 @@ public class Locacao {
     private Date dtLocacao;
     private Date dtDevolucao;
     private Double valorTotal;
-    @OneToMany
+    @ManyToOne
     private Entidade loja;
-    @OneToMany
+    @ManyToOne
     private Entidade cliente;
-    @OneToMany
-    private Entidade Vendedor;
+    @ManyToOne
+    private Entidade vendedor;
 
     
     public Date getDtLocacao() {
         return dtLocacao;
+    }
+    public Entidade getLoja() {
+        return loja;
+    }
+    public void setLoja(Entidade loja) {
+        this.loja = loja;
+    }
+    public Entidade getCliente(){
+        return cliente;
+    }
+    public void setCliente(Entidade cliente) {
+        this.cliente = cliente;
+    }
+    public Entidade getVendedor() {
+        return vendedor;
+    }
+    public void setVendedor(Entidade vendedor) {
+        this.vendedor = vendedor;
     }
     public Double getValorTotal() {
         return valorTotal;

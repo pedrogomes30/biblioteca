@@ -21,7 +21,7 @@ public class Endereco {
     @Column(nullable = true)
     private int cidade;
     @ManyToOne
-    Entidade entidade;
+    private Entidade entidade;
     
     public int getId() {
         return id;
@@ -53,12 +53,15 @@ public class Endereco {
     public void setCidade(int cidade) {
         this.cidade = cidade;
     }
+
     public Entidade getEntidade() {
         return entidade;
     }
+
     public void setEntidade(Entidade entidade) {
         this.entidade = entidade;
     }
+
     @Override
     public String toString() {
         return "Endereco [bairro=" + bairro + ", cep=" + cep + ", cidade=" + cidade + ", entidade=" + entidade + ", id="

@@ -16,10 +16,10 @@ public class Livro {
     private Integer isbn;
     private Double preco;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Autor autor;
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Categoria categoria;
 
     public Integer getId() {

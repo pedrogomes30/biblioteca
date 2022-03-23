@@ -27,6 +27,12 @@ public class Entidade {
     private String email;
     @ManyToOne(cascade = CascadeType.PERSIST)
     EntidadeTipo entidadeTipo;
+    @ManyToOne
+    private Entidade loja;
+    @ManyToOne
+    private Entidade cliente;
+    @ManyToOne
+    private Entidade Vendedor;
 
     @JsonIgnore
     @OneToMany(mappedBy = "entidade")
@@ -71,5 +77,28 @@ public class Entidade {
     public void setEmail(String email) {
         this.email = email;
     }
-   
+
+    public Entidade getLoja() {
+        return loja;
+    }
+
+    public void setLoja(Entidade loja) {
+        this.loja = loja;
+    }
+
+    public Entidade getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Entidade cliente) {
+        this.cliente = cliente;
+    }
+
+    public Entidade getVendedor() {
+        return Vendedor;
+    }
+
+    public void setVendedor(Entidade vendedor) {
+        Vendedor = vendedor;
+    }
 }

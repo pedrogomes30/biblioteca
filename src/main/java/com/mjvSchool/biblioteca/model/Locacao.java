@@ -13,38 +13,9 @@ public class Locacao {
     private Date dtLocacao;
     private Date dtDevolucao;
     private Double valorTotal;
-    @ManyToOne
-    private Entidade loja;
-    @ManyToOne
-    private Entidade cliente;
-    @ManyToOne
-    private Entidade vendedor;
 
-    
-    public Date getDtLocacao() {
-        return dtLocacao;
-    }
-    public Entidade getLoja() {
-        return loja;
-    }
-    public void setLoja(Entidade loja) {
-        this.loja = loja;
-    }
-    public Entidade getCliente(){
-        return cliente;
-    }
-    public void setCliente(Entidade cliente) {
-        this.cliente = cliente;
-    }
-    public Entidade getVendedor() {
-        return vendedor;
-    }
-    public void setVendedor(Entidade vendedor) {
-        this.vendedor = vendedor;
-    }
-    public Double getValorTotal() {
-        return valorTotal;
-    }
+
+
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
     }
@@ -57,5 +28,13 @@ public class Locacao {
     public void setDtLocacao(Date dtLocacao) {
         this.dtLocacao = dtLocacao;
     }
-    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }

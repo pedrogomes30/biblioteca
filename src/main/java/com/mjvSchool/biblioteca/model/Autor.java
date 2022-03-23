@@ -1,10 +1,7 @@
 package com.mjvSchool.biblioteca.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Autor {
@@ -12,7 +9,6 @@ public class Autor {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String nome;
-
 
     public Integer getId() {
         return id;

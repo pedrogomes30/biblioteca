@@ -1,6 +1,4 @@
 package com.mjvSchool.biblioteca.Service;
-
-import com.mjvSchool.biblioteca.dto.LivroDto;
 import com.mjvSchool.biblioteca.model.Livro;
 import com.mjvSchool.biblioteca.repository.AutorRepository;
 import com.mjvSchool.biblioteca.repository.CategoriaRepository;
@@ -8,9 +6,9 @@ import com.mjvSchool.biblioteca.repository.LivroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 
 //onde é definido a regra de negócio.
 @Service
@@ -24,42 +22,20 @@ public class LivroService {
         private AutorRepository autorRepository;
 
         @Transactional(readOnly = true)
-        public List<LivroDto> findAll() {
-            List<Livro> list = livroRepository.findAll();
-            return list.stream().map(x -> new LivroDto(x)).collect(Collectors.toList());
+        public List<Livro> findAll() {
+            livroRepository.findAll();
+            return livroRepository.findAll();
         }
 
-        @Transactional(readOnly = true)
-        public LivroDto findById(Integer id) {
-            Optional<Livro> obj = livroRepository.findById(id);
-            Livro entity = obj.get();
-            return new LivroDto(entity);
+
+        @Transactional
+        public Livro save(@RequestBody Livro livro) {
+            return livroRepository.save(livro);
         }
 
         @Transactional
-        public LivroDto insert(LivroDto dto) {
-            Livro entity = new Livro();
-            entity.setAutor(dto.getAutor());
-            entity.setCategoria(dto.getCategoria());
-            entity.setNome(dto.getNome());
-            entity.setEdicao(dto.getEdicao());
-            entity.setIsbn(dto.getIsbn());
-            entity.setPreco(dto.getPreco());
-            entity = livroRepository.save(entity);
-            return new LivroDto(entity);
-        }
-
-        @Transactional
-        public LivroDto update(Integer id, LivroDto dto) {
-            Livro entity = livroRepository.getOne(id);
-            entity.setAutor(dto.getAutor());
-            entity.setCategoria(dto.getCategoria());
-            entity.setNome(dto.getNome());
-            entity.setEdicao(dto.getEdicao());
-            entity.setIsbn(dto.getIsbn());
-            entity.setPreco(dto.getPreco());
-            entity = livroRepository.save(entity);
-            return new LivroDto(entity);
+        public Livro update(@RequestBody Livro livro) {
+            return livroRepository.save(livro);
         }
 
         public void delete(Integer id) {

@@ -7,12 +7,13 @@ public class Livro_Alugado {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
-    private Estoque estoque;
-    @ManyToOne
-    private Locacao locacao;
+//    @ManyToOne
+//    private Locacao locacao;
     private Integer quantidade;   
     private Double  valor;
+    @ManyToOne
+    private Livro livro;
+
 
     public Integer getId(){
         return id;
@@ -38,19 +39,21 @@ public class Livro_Alugado {
         this.id = id;
     }
 
-    public Estoque getEstoque() {
-        return estoque;
+//    public Locacao getLocacao() {
+//        return locacao;
+//    }
+//
+//    public void setLocacao(Locacao locacao) {
+//        this.locacao = locacao;
+//    }
+
+    public Livro getLivro() {
+        return livro;
     }
 
-    public void setEstoque(Estoque estoque) {
-        this.estoque = estoque;
+    public void setLivro(Livro livro) {
+        this.livro = livro;
     }
 
-    public Locacao getLocacao() {
-        return locacao;
-    }
 
-    public void setLocacao(Locacao locacao) {
-        this.locacao = locacao;
-    }
 }

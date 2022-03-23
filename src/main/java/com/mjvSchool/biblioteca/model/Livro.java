@@ -15,9 +15,11 @@ public class Livro {
     @Column(length = 13)
     private Integer isbn;
     private Double preco;
+    private Integer estoque;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Autor autor;
+
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Categoria categoria;
@@ -76,5 +78,13 @@ public class Livro {
 
     public void setPreco(Double preco) {
         this.preco = preco;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
     }
 }

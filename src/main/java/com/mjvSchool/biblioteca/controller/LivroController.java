@@ -33,7 +33,8 @@ public class LivroController {
     }
 
     @PutMapping(value = "/{id}")
-    public Livro update(@RequestBody Livro livro){
+    public Livro update(@PathVariable Integer id,@RequestBody Livro livro){
+        livro.setId(id);
         return livroService.update(livro);
     }
 

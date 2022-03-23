@@ -35,10 +35,10 @@ public class LivroController {
 
 
     @PutMapping()
-    public void alterar(@PathVariable("id") Integer id,@RequestBody Livro livro) {
-        livro.setId(id);
+    public void alterar(@RequestBody Livro livro) {
         livroRepository.save(livro);
     }
+
     @DeleteMapping(path = "/{id}")
     public void excluir(@PathVariable Integer id) {
         livroRepository.deleteById(id);

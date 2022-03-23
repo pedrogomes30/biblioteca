@@ -18,6 +18,7 @@ public class Livro {
     private String edicao;
     @Column(length = 13)
     private Integer isbn;
+    private Double preco;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
     private Autor autor;
@@ -71,5 +72,13 @@ public class Livro {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 }

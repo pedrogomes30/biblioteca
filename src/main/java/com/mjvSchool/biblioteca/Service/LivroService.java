@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+<<<<<<< HEAD
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,9 @@ import java.util.stream.Collectors;
 //onde é definido a regra de negócio.
 @Service
 public class LivroService {
+=======
+public class LivroService{
+>>>>>>> fbf601767613c6e673b6351bbf5f605c2523ce55
     @Autowired
     private LivroRepository livroRepository;
     @Autowired
@@ -84,9 +88,14 @@ public class LivroService {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
     }
+<<<<<<< HEAD
 
 
 
+=======
+    
+
+    
+>>>>>>> fbf601767613c6e673b6351bbf5f605c2523ce55
 }

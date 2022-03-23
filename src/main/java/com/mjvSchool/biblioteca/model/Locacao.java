@@ -13,12 +13,12 @@ public class Locacao {
     private Date dtLocacao;
     private Date dtDevolucao;
     private Double valorTotal;
-    @OneToMany
-    private Entidade loja;
-    @OneToMany
-    private Entidade cliente;
-    @OneToMany
-    private Entidade Vendedor;
+//    @OneToMany
+//    private Entidade loja;
+//    @OneToMany
+//    private Entidade cliente;
+//    @OneToMany
+//    private Entidade Vendedor;
 
     
     public Date getDtLocacao() {
@@ -39,5 +39,13 @@ public class Locacao {
     public void setDtLocacao(Date dtLocacao) {
         this.dtLocacao = dtLocacao;
     }
-    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }

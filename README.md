@@ -3,13 +3,13 @@
 <h1>Projeto final da school da MJV - Grupo 06</h1>
 
 
-<h3>Tema escolhido:</h3>
+<h2>Tema escolhido:</h2>
 
 sistema de locação em uma biblioteca
 
-<h3>descrição:</h3> 
+<h2>Jornada de implementação:</h2> 
 
-sistema desponsável por cadastrar livros com categoria e autores, gerenciar a locação e permitir cadastro de clientes, sendo multiloja.
+sistema para gerenciamento de locações de livro em uma biblioteca,permitindo o cadastro de livro com categorizacão e autor, registro da quantidade de livros alugadas, pagamentos e total de locações realizadas, permite também o cadastro de loja, cliente e vendedor a partir de uma unica classe entidade com tipagem e multi endereços e multi contatos.
 
 <h3>Diagrama de entidade e relacionamento:</h3>
 
@@ -17,7 +17,7 @@ sistema desponsável por cadastrar livros com categoria e autores, gerenciar a l
 
 <h3>Tecnologias utilizadas:</h3>
 
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/><img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white/"><img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" /><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" /><img src="https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white" /><img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" />
+<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white"/><img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white/"><img src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white" /><img src="https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white" /><img src="https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white" />
 
 <h3>Instalação</h3>
 
@@ -37,6 +37,7 @@ mvn package
 mvn spring-boot:start
 </pre>
 
+feito isso a aplicação irá disponibilizar a documentação de endpoint via swe
 
 <h3>Integrantes do grupo:</h3>  <br>
 

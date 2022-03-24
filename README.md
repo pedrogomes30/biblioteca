@@ -76,7 +76,7 @@ banco H2 ficará disponivel em:
   <details><summary>/autor</summary>
   <pre>
   {
-    "nome": "richard a knack",
+    "nome": "Arthur Conan Doile"
   }
   </pre>
 </details> 
@@ -84,7 +84,7 @@ banco H2 ficará disponivel em:
    <details><summary>/categoria</summary>
   <pre>
   {
-    "nome": "terror",
+    "descricao": "Investigação"
   }
   </pre>
 </details> 
@@ -92,11 +92,11 @@ banco H2 ficará disponivel em:
   <details><summary>/livro</summary>
   <pre>
   {
-    "nome": "livroA",
-    "edicao": "edicao1",
-    "isbn": 7987654321,
-    "preco": 10.00,
-    "estoque": 120,
+    "nome": "umestudoemvermelho",
+    "edicao": "1",
+    "isbn": 123,
+    "preco": 30,
+    "estoque": 10,
     "autor": {
       "id": 1
     },
@@ -123,56 +123,70 @@ banco H2 ficará disponivel em:
   
 <details><summary>/entidade</summary>
   <pre>
- {
-  "nome": "Caetano",
-  "documento": "21505623-10",
-  "email": "caetano@caetano.com",
-  "entidadeTipo": {
-    "id": 1         //1 -> cliente 2->vendedor 3->loja
+  {
+    "id": 1,
+    "nome": "Aluno MJV",
+    "documento": "222",
+    "email": "aluno@teste.com",
+    "entidadeTipo": {
+      "id": 1,
+      "descricao": "cliente"
+    },
+    "enderecos": [
+      {
+        "id": 0,
+        "logradouro": "rua01",
+        "bairro": "vila01",
+        "cep": "123001",
+        "cidade": 0
+      }
+    ],
+    "contatos": [
+      {
+        "id": 1,
+        "telefone": "99998888",
+        "telefoneTipo": "celular"
+      }
+    ]
+  }
+</pre>
+</details>
+
+<details><summary>/livro</summary>
+  <pre>
+  {
+  "nome": "umestudoemvermelho",
+  "edicao": "1",
+  "isbn": 123,
+   "preco": 30,
+   "estoque": 10,
+  "autor": {
+    "id": 1
   },
-  "contato": {
-    "telefone": "26465555",
-    "telefoneTipo":"celular"
+  "categoria": {
+    "id": 1
   }
-  "endereco":{
-    "logradouro":"rua01",
-    "bairro":"vila 1",
-    "cep": "2588-90",
-    "cidade":"são paulo"
-  }
+}
 </pre>
 </details>
   
 <details><summary>/locacao</summary>
   <pre>
   {
-  "dtLocacao": "2022-03-24T18:09:17.130Z",
-  "dtDevolucao": "2022-03-26T18:09:17.130Z",
-  "valorTotal": 20.00,
-  "cliente": {
-    "id": 1
-  },
-  "vendedor": {
-    "id": 2
-  },
-  "loja": {
-    "id": 3
-  },
-  "livroAlugado": [
+  "id": 0,
+  "clientId": 1,
+  "livros": [
     {
-      "quantidade": 2,
-      "valor": 10.00,
-      "livro":{
-        "id": 1
-       }
+      "id": 1,
+      "quantidade": 1,
+      "valor": 30,
+      "livro": 1
     }
   ],
-  "pagamentos": [
-    {
-      "valor": 20.00,
-      "formaPagamento":"cartao"
-    }
-  ],
+  "pagamento_id": 1,
+  "valorTotal": 30,
+  "dtLocacao": "2022-03-24T19:45:05.186Z",
+  "dtDevolucao": "2022-03-24T19:45:05.186Z"
 }
   </pre>
 </details>  

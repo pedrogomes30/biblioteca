@@ -24,10 +24,16 @@ public class Locacao {
     private List<LivroAlugado> livros;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pagamento")
+    @JoinColumn(name = "pagamentos")
     private List<Pagamentos> pagamentos = new ArrayList<>();
 
+    public List<Pagamentos> getPagamentos() {
+        return pagamentos;
+    }
 
+    public void setPagamentos(List<Pagamentos> pagamentos) {
+        this.pagamentos = pagamentos;
+    }
 
     public void setValorTotal(Double valorTotal) {
         this.valorTotal = valorTotal;
@@ -72,13 +78,5 @@ public class Locacao {
 
     public void setLivros(List<LivroAlugado> livros) {
         this.livros = livros;
-    }
-
-    public List<Pagamentos> getPagamentos() {
-        return pagamentos;
-    }
-
-    public void setPagamentos(List<Pagamentos> pagamentos) {
-        this.pagamentos = pagamentos;
     }
 }

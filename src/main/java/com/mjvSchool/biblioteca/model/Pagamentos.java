@@ -1,6 +1,8 @@
 package com.mjvSchool.biblioteca.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Pagamentos {
@@ -8,7 +10,6 @@ public class Pagamentos {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private Double valor;
-
 
 
     public Integer getId() {
@@ -26,5 +27,6 @@ public class Pagamentos {
     public void setValor(Double valor) {
         this.valor = valor;
     }
+
 
 }

@@ -21,7 +21,7 @@ public class Locacao {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "livro_alugado")
-    private List<Livro_Alugado> livro_alugado;
+    private List<LivroAlugado> livros;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "pagamento")
@@ -66,12 +66,12 @@ public class Locacao {
         this.cliente = cliente;
     }
 
-    public List<Livro_Alugado> getLivro_alugado() {
-        return livro_alugado;
+    public List<LivroAlugado> getLivros() {
+        return livros;
     }
 
-    public void setLivro_alugado(List<Livro_Alugado> livro_alugado) {
-        this.livro_alugado = livro_alugado;
+    public void setLivros(List<LivroAlugado> livros) {
+        this.livros = livros;
     }
 
     public List<Pagamentos> getPagamentos() {

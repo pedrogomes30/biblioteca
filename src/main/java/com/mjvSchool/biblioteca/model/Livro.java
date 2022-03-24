@@ -17,11 +17,11 @@ public class Livro {
     private Double preco;
     private Integer estoque;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Autor autor;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     private Categoria categoria;
 
     public Integer getId() {

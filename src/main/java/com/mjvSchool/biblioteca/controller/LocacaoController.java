@@ -25,21 +25,18 @@ public class LocacaoController {
         return locacaoService.findAll();
     }
 
-
-
     @PostMapping()
     public void gravar(@RequestBody LocacaoDto dto) {
         locacaoService.salvar(dto);
     }
-//
-//
-//    @PutMapping()
-//    public void alterar(@RequestBody Locacao locacao) {
-//        locacaoService.save(locacao);
-//    }
-//
-//    @DeleteMapping(path = "/{id}")
-//    public void excluir(@PathVariable Integer id) {
-//        locacaoService.deleteById(id);
-//    }
+
+    @PutMapping()
+    public void alterar(@RequestBody Locacao locacao) {
+        locacaoService.update(locacao);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public void excluir(@PathVariable Integer id) {
+        locacaoService.delete(id);
+    }
 }

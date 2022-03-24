@@ -3,14 +3,15 @@ package com.mjvSchool.biblioteca.model;
 import javax.persistence.*;
 
 @Entity
-public class Livro_Alugado {
+public class LivroAlugado {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private Integer quantidade;   
     private Double  valor;
-    @ManyToOne
-    private Livro livro;
+
+    @Column(name = "id_livro")
+    private Integer livro;
 
 
     public Integer getId(){
@@ -37,13 +38,11 @@ public class Livro_Alugado {
         this.id = id;
     }
 
-    public Livro getLivro() {
+    public Integer getLivro() {
         return livro;
     }
 
-    public void setLivro(Livro livro) {
+    public void setLivro(Integer livro) {
         this.livro = livro;
     }
-
-
 }

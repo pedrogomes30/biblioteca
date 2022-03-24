@@ -2,6 +2,7 @@ package com.mjvSchool.biblioteca.model;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -25,13 +26,9 @@ public class Entidade{
     private List<Endereco> enderecos;
 
     @OneToMany(cascade = CascadeType.ALL)
-<<<<<<< HEAD
     @JoinColumn(name = "id_contatos")
     private List<Contato> contatos;
-=======
-    @JoinTable(name = "contato")
-    private List<Contato> contatos = new ArrayList<>();
->>>>>>> 6d5b11eeae85cd4a7a39bd1fbc6daed8190f9df7
+
 
     public int getId() {
         return id;

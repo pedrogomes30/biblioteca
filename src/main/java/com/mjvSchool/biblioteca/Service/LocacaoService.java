@@ -2,15 +2,18 @@ package com.mjvSchool.biblioteca.Service;
 
 import com.mjvSchool.biblioteca.dto.LocacaoDto;
 import com.mjvSchool.biblioteca.model.Entidade;
+import com.mjvSchool.biblioteca.model.Livro;
 import com.mjvSchool.biblioteca.model.Locacao;
 import com.mjvSchool.biblioteca.repository.EntidadeRepository;
 import com.mjvSchool.biblioteca.repository.LocacaoRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class LocacaoService {
@@ -41,13 +44,12 @@ public class LocacaoService {
     }
 
 
-//
-//    public void save(Locacao locacao) {
-//    }
-//
-//    public void deleteById(Integer id) {
-//    }
-//
-//    public Optional<Locacao> findById(Integer id) {
-//    }
+    public Locacao update(@RequestBody Locacao locacao) {
+        return locacaoRepository.save(locacao);
+    }
+
+    public void delete(Integer id) {
+        locacaoRepository.deleteById(id);
+    }
+
 }

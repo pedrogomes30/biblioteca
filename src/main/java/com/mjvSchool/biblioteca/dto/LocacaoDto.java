@@ -1,11 +1,14 @@
 package com.mjvSchool.biblioteca.dto;
 
+import com.mjvSchool.biblioteca.model.LivroAlugado;
+
 import java.sql.Date;
+import java.util.List;
 
 public class LocacaoDto {
     private Integer id;
     private Integer clientId;
-    private Integer livroAlugadoId;
+    private List<LivroAlugado> livros;
     private Double pagamento_id;
     private Double valorTotal;
     private Date dtLocacao;
@@ -27,12 +30,12 @@ public class LocacaoDto {
         this.clientId = clientId;
     }
 
-    public Integer getLivroAlugadoId() {
-        return livroAlugadoId;
+    public List<LivroAlugado> getLivros() {
+        return livros;
     }
 
-    public void setLivroAlugadoId(Integer livroAlugadoId) {
-        this.livroAlugadoId = livroAlugadoId;
+    public void setLivros(List<LivroAlugado> livros) {
+        this.livros = livros;
     }
 
     public Double getValorTotal() {

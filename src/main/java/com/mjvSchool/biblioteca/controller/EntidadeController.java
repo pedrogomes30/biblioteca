@@ -3,6 +3,7 @@ package com.mjvSchool.biblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.mjvSchool.biblioteca.Service.EntidadeService;
 import com.mjvSchool.biblioteca.model.Entidade;
 import com.mjvSchool.biblioteca.repository.EntidadeRepository;
 
@@ -23,34 +24,32 @@ import org.springframework.web.bind.annotation.RestController;
 public class EntidadeController {
 
     @Autowired
-    private EntidadeRepository entidadeRepository;
+    private EntidadeService entidadeService;
 
     @PostMapping()
-    public void gravar(@RequestBody Entidade entidade) {
-        entidadeRepository.save(entidade);
+    public void save(@RequestBody Entidade entidade) {
         System.out.println("GRAVAR");
+        System.out.println(entidade);
+		entidadeService.save(entidade);
     }
 
-    @PutMapping(value = "/{id}")
-    public void alterar(@PathVariable("id") Integer id,@RequestBody Entidade entidade) {
-        entidade.setId(id);
-        entidadeRepository.save(entidade);
+    @PutMapping()
+    public void update(@RequestBody Entidade entidade) {
         System.out.println("ALTERAR");
+        entidadeService.update(entidade);   
     }
 
     @DeleteMapping(path = "/{id}")
-    public void excluir(Integer id) {
+    public void delete(@PathVariable Integer id) {
         System.out.println("EXCLUIR");
+        entidadeService.delete(id);
     }
 
     @GetMapping()
-    public List<Entidade> listar(){
-        return entidadeRepository.findAll();
+    public List<Entidade> findAll() {
+        return entidadeService.findAll();
     }
+
+   
     
-    @GetMapping(path = "/{id}")
-    public Optional<Entidade> listarUm(@PathVariable("id") Integer id){
-        System.out.println("LISTANDO");
-        return entidadeRepository.findById(id);
-    }
 }

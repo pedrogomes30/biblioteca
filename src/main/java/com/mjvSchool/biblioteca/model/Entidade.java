@@ -23,7 +23,7 @@ public class Entidade {
 
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "contatos")
+    @JoinTable(name = "contato")
     private List<Contato> contatos = new ArrayList<>();
 
     public int getId() {

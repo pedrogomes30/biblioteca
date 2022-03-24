@@ -89,14 +89,6 @@ banco H2 ficará disponivel em:
   </pre>
 </details> 
   
-  <details><summary>/categoria</summary>
-  <pre>
-  {
-    "descricao": "cliente";
-  }
-  </pre>
-</details>  
-  
   <details><summary>/livro</summary>
   <pre>
   {

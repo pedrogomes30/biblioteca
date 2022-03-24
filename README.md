@@ -11,6 +11,23 @@ sistema de locação em uma biblioteca
 
 sistema para gerenciamento de locações de livro em uma biblioteca,permitindo o cadastro de livro com categorizacão e autor, registro da quantidade de livros alugadas, pagamentos e total de locações realizadas, permite também o cadastro de loja, cliente e vendedor a partir de uma unica classe entidade com tipagem e multi endereços e multi contatos.
 
+jornada de persistência:
+ - inicia salvando a tabela 'autor' e 'categoria';
+ - salva a tabela 'livro' com referencia em 'autor e 'categoria';
+ - salva a o 'entidade_tipo';
+ - salva 'entidade' com o 'contato' e 'endereco' do tipo cliente;
+ - salva 'entidade' com o 'contato' e 'endereco' do tipo vendedor;
+ - salva 'entidade' com o 'contato' e 'endereco' do tipo loja;
+ - salva uma 'locacao' com 'livro_alugado' e 'pagamentos':
+    - onde 'Luvro_alugado' se relaciona com 'livro' ou '<livro>' verificando a quantidade disponivel;
+    - onde pagamentos deve ter seu total igual o valor total de 'locacao';
+    - 'locacao' se telaciona com 'entidade' do tipo 'CLiente';
+    - 'locacao' se telaciona com 'entidade' do tipo 'Vendedor';
+    - 'locacao' se telaciona com 'entidade' do tipo 'Loja';
+ 
+ 
+
+
 <h3>Diagrama de entidade e relacionamento:</h3>
 
 <img src='https://github.com/pedrogomes30/biblioteca/blob/master/Docs/img/Biblioteca.png'/>
@@ -37,8 +54,15 @@ mvn package
 mvn spring-boot:start
 </pre>
 
-feito isso a aplicação irá disponibilizar a documentação de endpoint via swe
-
+feito isso a aplicação irá disponibilizar a documentação de endpoint via swagger:
+  <pre>
+  http://localhost:8080/swagger-ui/index.html#/
+  </pre>
+  
+banco H2 ficará disponivel em:
+  <pre>
+  http://localhost:8080/h2-console/login.jsp
+  </pre>
 <h3>Integrantes do grupo:</h3>  <br>
 
 [<img src="https://img.shields.io/badge/PedroGomes30-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" title = "Pedro Gomes">](https://github.com/pedrogomes30/)
@@ -49,400 +73,107 @@ feito isso a aplicação irá disponibilizar a documentação de endpoint via sw
 
 <h3>Schemas da aplicação</h3>
 
-
-<details><summary>locacao-controller</summary>
-
-  <details><summary>GET/locacao</summary>
-<pre>
-[
-  {
-    "dtLocacao": "2022-03-23T01:33:05.149Z",
-    "dtDevolucao": "2022-03-23T01:33:05.149Z",
-    "valorTotal": 0,
-    "loja": {
-      "id": 0,
-      "nome": "string",
-      "documento": "string",
-      "email": "string",
-      "entidadeTipo": {
-        "id": 0,
-        "descricao": "string"
-      },
-      "entidade": {
-        "id": 0,
-        "descricao": "string"
-      }
-    },
-    "cliente": {
-      "id": 0,
-      "nome": "string",
-      "documento": "string",
-      "email": "string",
-      "entidadeTipo": {
-        "id": 0,
-        "descricao": "string"
-      },
-      "entidade": {
-        "id": 0,
-        "descricao": "string"
-      }
-    },
-    "vendedor": {
-      "id": 0,
-      "nome": "string",
-      "documento": "string",
-      "email": "string",
-      "entidadeTipo": {
-        "id": 0,
-        "descricao": "string"
-      },
-      "entidade": {
-        "id": 0,
-        "descricao": "string"
-      }
-    }
-  }
-]
-</pre>
-</details>
-<details><summary>PUT/locacao</summary>
-  <pre>
-    {
-  "dtLocacao": "2022-03-23T01:50:43.052Z",
-  "dtDevolucao": "2022-03-23T01:50:43.052Z",
-  "valorTotal": 0,
-  "loja": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  },
-  "cliente": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  },
-  "vendedor": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  }
-}
-  </pre>
-</details>
-<details><summary>POST/locacao</summary>
+  <details><summary>/autor</summary>
   <pre>
   {
-  "dtLocacao": "2022-03-23T01:51:44.462Z",
-  "dtDevolucao": "2022-03-23T01:51:44.462Z",
-  "valorTotal": 0,
-  "loja": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  },
-  "cliente": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  },
-  "vendedor": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
+    "nome": "richard a knack",
   }
-}
   </pre>
-</details>
-  <details><summary>GET/locacao/{id}</summary>
-    <pre>
-    {
-  "dtLocacao": "2022-03-23T01:53:16.708Z",
-  "dtDevolucao": "2022-03-23T01:53:16.708Z",
-  "valorTotal": 0,
-  "loja": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  },
-  "cliente": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  },
-  "vendedor": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-      "id": 0,
-      "descricao": "string"
-    },
-    "entidade": {
-      "id": 0,
-      "descricao": "string"
-    }
-  }
-}
-    </pre>
-  </details>
-  <details><summary>DELETE/locacao/{id}</summary>
-    <pre>
-    {
-      "id":"integer"
-    }
-    </pre>
-    </details>
-</details>
-<details><summary>livro-controller</summary>
-    <details><summary>GET/livros</summary>
-        <pre>
-[
+</details> 
+  
+   <details><summary>/categoria</summary>
+  <pre>
   {
-    "id": 0,
-    "quantidadeLivro": "string",
-    "livro": {
-      "id": 0,
-      "nome": "string",
-      "edicao": "string",
-      "isbn": 0,
-      "preco": 0,
-      "autor": {
-        "id": 0,
-        "nome": "string"
-      },
-      "categoria": {
-        "id": 0,
-        "descricao": "string"
-      }
-    },
-    "entidade": {
-      "id": 0,
-      "nome": "string",
-      "documento": "string",
-      "email": "string",
-      "entidadeTipo": {
-        "id": 0,
-        "descricao": "string"
-      },
-      "entidade": {
-        "id": 0,
-        "descricao": "string"
-      }
-    }
+    "nome": "terror",
   }
-]
-        </pre></details>
-    <details><summary>PUT/livros</summary>
-        <pre>
-{
-    "id": 0,
-    "quantidadeLivro": "string",
-    "livro": {
-        "id": 0,
-        "nome": "string",
-        "edicao": "string",
-        "isbn": 0,
-        "preco": 0,
-        "autor": {
-        "id": 0,
-        "nome": "string"
-        },
-        "categoria": {
-        "id": 0,
-        "descricao": "string"
-        }
-    },
-    "entidade": {
-        "id": 0,
-        "nome": "string",
-        "documento": "string",
-        "email": "string",
-        "entidadeTipo": {
-        "id": 0,
-        "descricao": "string"
-        },
-        "entidade": {
-        "id": 0,
-        "descricao": "string"
-        }
-    }
-}
-        </pre></details>
-    <details><summary>POST/livros</summary>
-        <pre>
-{
-    "id": 0,
-    "quantidadeLivro": "string",
-    "livro": {
-        "id": 0,
-        "nome": "string",
-        "edicao": "string",
-        "isbn": 0,
-        "preco": 0,
-        "autor": {
-        "id": 0,
-        "nome": "string"
-        },
-        "categoria": {
-        "id": 0,
-        "descricao": "string"
-        }
-    },
-    "entidade": {
-        "id": 0,
-        "nome": "string",
-        "documento": "string",
-        "email": "string",
-        "entidadeTipo": {
-        "id": 0,
-        "descricao": "string"
-        },
-        "entidade": {
-        "id": 0,
-        "descricao": "string"
-        }
-    }
-    }
-        </pre></details>
-    <details><summary>GET/livros/{id}</summary>
-        <pre>
-{
-"id": 0,
-"quantidadeLivro": "string",
-"livro": {
-    "id": 0,
-    "nome": "string",
-    "edicao": "string",
-    "isbn": 0,
-    "preco": 0,
+  </pre>
+</details> 
+  
+  <details><summary>/livro</summary>
+  <pre>
+  {
+    "nome": "livroA",
+    "edicao": "edicao1",
+    "isbn": 7987654321,
+    "preco": 10.00,
+    "estoque": 120,
     "autor": {
-    "id": 0,
-    "nome": "string"
+      "id": 1
     },
     "categoria": {
-    "id": 0,
-    "descricao": "string"
+      "id": 1
     }
-},
-"entidade": {
-    "id": 0,
-    "nome": "string",
-    "documento": "string",
-    "email": "string",
-    "entidadeTipo": {
-    "id": 0,
-    "descricao": "string"
-    },
-    "entidade": {
-    "id": 0,
-    "descricao": "string"
-    }
-}
-}
-        </pre></details>
-    <details><summary>DELETE/livros/{id}</summary>
-        <pre>
-{
-    "id":"integer"
-}
-        </pre></details>
+  }
+  </pre>
+</details>  
+  
+<details><summary>/entidadeTipo</summary>
+  <pre>
+  {
+    "descricao": "cliente";
+  },
+  {
+    "descricao": "vendedor";
+  },
+  {
+    "descricao": "loja";
+  }
+  </pre>
+</details>  
+  
+<details><summary>/entidade</summary>
+  <pre>
+ {
+  "nome": "Caetano",
+  "documento": "21505623-10",
+  "email": "caetano@caetano.com",
+  "entidadeTipo": {
+    "id": 1         //1 -> cliente 2->vendedor 3->loja
+  },
+  "contato": {
+    "telefone": "26465555",
+    "telefoneTipo":"celular"
+  }
+  "endereco":{
+    "logradouro":"rua01",
+    "bairro":"vila 1",
+    "cep": "2588-90",
+    "cidade":"são paulo"
+  }
+</pre>
 </details>
-<h4>estoque-controller</h4>
-GET/estoque
-PUT/estoque
-POST/estoque
-GET/estoque/{id}
-DELETE/estoque/{id}
-<h4>entidade-controller</h4>
-GET/entidade/{id}
-PUT/entidade/{id}
-DELETE/entidade/{id}
-GET/entidade
-POST/entidade
-<h4>categoria-controller</h4>
-GET/categoria
-PUT/categoria
-POST/categoria
-GET/categoria/{id}
-DELETE/categoria/{id}
-<h4>autor-controller</h4>
-GET/autor
-PUT/autor
-POST/autor
-GET/autor/{id}
-DELETE/autor/{id}
-<h4>entidade-tipo-controller</h4>
-POST/entidade_tipo
+  
+<details><summary>/locacao</summary>
+  <pre>
+  {
+  "dtLocacao": "2022-03-24T18:09:17.130Z",
+  "dtDevolucao": "2022-03-26T18:09:17.130Z",
+  "valorTotal": 20.00,
+  "cliente": {
+    "id": 1
+  },
+  "vendedor": {
+    "id": 2
+  },
+  "loja": {
+    "id": 3
+  },
+  "livroAlugado": [
+    {
+      "quantidade": 2,
+      "valor": 10.00,
+      "livro":{
+        "id": 1
+       }
+    }
+  ],
+  "pagamentos": [
+    {
+      "valor": 20.00,
+      "formaPagamento":"cartao"
+    }
+  ],
+}
+  </pre>
+</details>  
+  

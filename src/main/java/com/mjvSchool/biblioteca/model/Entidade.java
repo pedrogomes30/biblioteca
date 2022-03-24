@@ -1,14 +1,13 @@
 package com.mjvSchool.biblioteca.model;
 
-import java.util.ArrayList;
+
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 @Entity
-public class Entidade {
+public class Entidade{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,10 +20,13 @@ public class Entidade {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private EntidadeTipo entidadeTipo;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_endereco")
+    private List<Endereco> enderecos;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "contatos")
-    private List<Contato> contatos = new ArrayList<>();
+    @JoinColumn(name = "id_contatos")
+    private List<Contato> contatos;
 
     public int getId() {
         return id;
@@ -64,6 +66,14 @@ public class Entidade {
 
     public void setEntidadeTipo(EntidadeTipo entidadeTipo) {
         this.entidadeTipo = entidadeTipo;
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 
     public List<Contato> getContatos() {

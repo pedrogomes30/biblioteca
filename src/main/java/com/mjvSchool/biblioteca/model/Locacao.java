@@ -15,12 +15,10 @@ public class Locacao {
     private Date dtLocacao;
     private Date dtDevolucao;
     private Double valorTotal;
-    @ManyToOne
-    private Entidade loja;
+
     @ManyToOne
     private Entidade cliente;
-    @ManyToOne
-    private Entidade Vendedor;
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "livro_alugado")
     private List<Livro_Alugado> livro_alugado;
@@ -60,28 +58,12 @@ public class Locacao {
         return valorTotal;
     }
 
-    public Entidade getLoja() {
-        return loja;
-    }
-
-    public void setLoja(Entidade loja) {
-        this.loja = loja;
-    }
-
     public Entidade getCliente() {
         return cliente;
     }
 
     public void setCliente(Entidade cliente) {
         this.cliente = cliente;
-    }
-
-    public Entidade getVendedor() {
-        return Vendedor;
-    }
-
-    public void setVendedor(Entidade vendedor) {
-        Vendedor = vendedor;
     }
 
     public List<Livro_Alugado> getLivro_alugado() {

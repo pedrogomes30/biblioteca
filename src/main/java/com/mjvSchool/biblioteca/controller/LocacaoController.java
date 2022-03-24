@@ -3,6 +3,8 @@ package com.mjvSchool.biblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.mjvSchool.biblioteca.Service.LocacaoService;
+import com.mjvSchool.biblioteca.dto.LocacaoDto;
 import com.mjvSchool.biblioteca.model.Entidade;
 import com.mjvSchool.biblioteca.model.Locacao;
 
@@ -16,33 +18,28 @@ import org.springframework.web.bind.annotation.*;
 public class LocacaoController {
 
     @Autowired
-    private LocacaoRepository locacaoRepository;
+    private LocacaoService locacaoService;
 
     @GetMapping()
     public List<Locacao> listar() {
-        return locacaoRepository.findAll();
+        return locacaoService.findAll();
     }
 
-    @GetMapping(path = "/{id}")
-    public Optional<Locacao> listarUm(@PathVariable("id") Integer id){
-        return locacaoRepository.findById(id);
-    }
 
 
     @PostMapping()
-    public void gravar(@RequestBody Locacao locacao) {
-        System.out.println(locacao.getLoja().getId());
-        locacaoRepository.save(locacao);
+    public void gravar(@RequestBody LocacaoDto dto) {
+        locacaoService.salvar(dto);
     }
-
-
-    @PutMapping()
-    public void alterar(@RequestBody Locacao locacao) {
-        locacaoRepository.save(locacao);
-    }
-
-    @DeleteMapping(path = "/{id}")
-    public void excluir(@PathVariable Integer id) {
-        locacaoRepository.deleteById(id);
-    }
+//
+//
+//    @PutMapping()
+//    public void alterar(@RequestBody Locacao locacao) {
+//        locacaoService.save(locacao);
+//    }
+//
+//    @DeleteMapping(path = "/{id}")
+//    public void excluir(@PathVariable Integer id) {
+//        locacaoService.deleteById(id);
+//    }
 }

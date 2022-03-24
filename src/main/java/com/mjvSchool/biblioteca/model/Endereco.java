@@ -20,8 +20,7 @@ public class Endereco {
     private String cep;
     @Column(nullable = true)
     private int cidade;
-    @ManyToOne
-    private Entidade entidade;
+
     
     public int getId() {
         return id;
@@ -54,17 +53,10 @@ public class Endereco {
         this.cidade = cidade;
     }
 
-    public Entidade getEntidade() {
-        return entidade;
-    }
-
-    public void setEntidade(Entidade entidade) {
-        this.entidade = entidade;
-    }
 
     @Override
     public String toString() {
-        return "Endereco [bairro=" + bairro + ", cep=" + cep + ", cidade=" + cidade + ", entidade=" + entidade + ", id="
+        return "Endereco [bairro=" + bairro + ", cep=" + cep + ", cidade=" + cidade + ", id="
                 + id + ", logradouro=" + logradouro + "]";
     } 
 }

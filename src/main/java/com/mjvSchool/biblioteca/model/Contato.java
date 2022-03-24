@@ -16,8 +16,7 @@ public class Contato {
     private String telefone;
     @Column(nullable = true)
     private String telefoneTipo;
-    @ManyToOne
-    Entidade entidade;
+
     
     public int getId() {
         return id;

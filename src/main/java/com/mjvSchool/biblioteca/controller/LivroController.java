@@ -32,9 +32,8 @@ public class LivroController {
         return livroService.save(livro);
     }
 
-    @PutMapping(value = "/{id}")
-    public Livro update(@PathVariable Integer id,@RequestBody Livro livro){
-        livro.setId(id);
+    @PutMapping()
+    public Livro update(@RequestBody Livro livro){
         return livroService.update(livro);
     }
 

@@ -3,14 +3,7 @@ package com.mjvSchool.biblioteca.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,51 +19,58 @@ public class Entidade {
     @Column(nullable = true)
     private String email;
     @ManyToOne(cascade = CascadeType.PERSIST)
-    EntidadeTipo entidadeTipo;
+    private EntidadeTipo entidadeTipo;
 
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "entidade")
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "contatos")
     private List<Contato> contatos = new ArrayList<>();
-    
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getDocumento() {
         return documento;
     }
+
     public void setDocumento(String documento) {
         this.documento = documento;
     }
-    public EntidadeTipo getEntidadeTipo() {
-        return entidadeTipo;
-    }
-    public void setEntidade(EntidadeTipo entidadeTipo) {
-        this.entidadeTipo = entidadeTipo;
-    }
-    public void setEntidadeTipo(EntidadeTipo entidadeTipo) {
-        this.entidadeTipo = entidadeTipo;
-    }
-    public List<Contato> getContatos() {
-        return contatos;
-    }
-    public void setContatos(List<Contato> contatos) {
-        this.contatos = contatos;
-    }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public EntidadeTipo getEntidadeTipo() {
+        return entidadeTipo;
+    }
+
+    public void setEntidadeTipo(EntidadeTipo entidadeTipo) {
+        this.entidadeTipo = entidadeTipo;
+    }
+
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
+    }
 }

@@ -7,8 +7,6 @@ public class Livro_Alugado {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
-//    @ManyToOne
-//    private Locacao locacao;
     private Integer quantidade;   
     private Double  valor;
     @ManyToOne
@@ -38,14 +36,6 @@ public class Livro_Alugado {
     public void setId(Integer id) {
         this.id = id;
     }
-
-//    public Locacao getLocacao() {
-//        return locacao;
-//    }
-//
-//    public void setLocacao(Locacao locacao) {
-//        this.locacao = locacao;
-//    }
 
     public Livro getLivro() {
         return livro;

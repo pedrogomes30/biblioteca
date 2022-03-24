@@ -23,7 +23,6 @@ public class LivroService {
 
         @Transactional(readOnly = true)
         public List<Livro> findAll() {
-            livroRepository.findAll();
             return livroRepository.findAll();
         }
 

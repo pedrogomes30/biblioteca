@@ -3,6 +3,7 @@ package com.mjvSchool.biblioteca.controller;
 import java.util.List;
 import java.util.Optional;
 
+import com.mjvSchool.biblioteca.model.Entidade;
 import com.mjvSchool.biblioteca.model.Locacao;
 
 import com.mjvSchool.biblioteca.repository.LocacaoRepository;
@@ -30,6 +31,7 @@ public class LocacaoController {
 
     @PostMapping()
     public void gravar(@RequestBody Locacao locacao) {
+        System.out.println(locacao.getLoja().getId());
         locacaoRepository.save(locacao);
     }
 

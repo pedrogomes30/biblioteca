@@ -4,6 +4,7 @@ package com.mjvSchool.biblioteca.model;
 import javax.persistence.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,11 +23,11 @@ public class Locacao {
     private Entidade Vendedor;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "livro_alugado")
-    private List<Locacao> locacao;
+    private List<Livro_Alugado> livro_alugado;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "pagamento")
-    private List<Pagamentos> pagamentos;
+    private List<Pagamentos> pagamentos = new ArrayList<>();
 
 
 
@@ -83,12 +84,12 @@ public class Locacao {
         Vendedor = vendedor;
     }
 
-    public List<Locacao> getLocacao() {
-        return locacao;
+    public List<Livro_Alugado> getLivro_alugado() {
+        return livro_alugado;
     }
 
-    public void setLocacao(List<Locacao> locacao) {
-        this.locacao = locacao;
+    public void setLivro_alugado(List<Livro_Alugado> livro_alugado) {
+        this.livro_alugado = livro_alugado;
     }
 
     public List<Pagamentos> getPagamentos() {

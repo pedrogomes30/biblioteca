@@ -67,7 +67,6 @@ banco H2 ficará disponivel em:
 
 [<img src="https://img.shields.io/badge/PedroGomes30-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" title = "Pedro Gomes">](https://github.com/pedrogomes30/)
 [<img src="https://img.shields.io/badge/KarolineGoergen-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" title = "Karoline Goergen">](https://github.com/KarolineGoergen)
-[<img src="https://img.shields.io/badge/LucasEmanuel-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" title = "Lucas Emanuel">](https://github.com/Luscaw)
 [<img src="https://img.shields.io/badge/Bruno Manhães-%23121011.svg?style=for-the-badge&logo=github&logoColor=white" title = "Bruno Manhães">](https://github.com/NewarkX)
 
 
